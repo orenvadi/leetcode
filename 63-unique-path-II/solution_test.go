@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-
-	uniquepathii "github.com/orenvadi/leetcode/63-unique-path-II"
-)
+import "testing"
 
 var tests = []struct {
 	obstacleGrid [][]int
@@ -62,11 +58,11 @@ var tests = []struct {
 	},
 }
 
-func main() {
+func TestUniquePathsWithObstacles(t *testing.T) {
 	for _, testCase := range tests {
-		res := uniquepathii.UniquePathsWithObstacles(testCase.obstacleGrid)
-		// if res != testCase.uniquePaths {
-		fmt.Printf("uniquePathsWithObstacles(%v) = %d, expected %d\n", testCase.obstacleGrid, res, testCase.uniquePaths)
-		// }
+		res := uniquePathsWithObstacles(testCase.obstacleGrid)
+		if res != testCase.uniquePaths {
+			t.Errorf("uniquePathsWithObstacles(%v) = %d, expected %d", testCase.obstacleGrid, res, testCase.uniquePaths)
+		}
 	}
 }

@@ -1,8 +1,6 @@
-package uniquepathii
+package main
 
-import "fmt"
-
-func UniquePathsWithObstacles(obstacleGrid [][]int) int {
+func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	obstacleGridLenghtM := len(obstacleGrid)
 	obstacleGridLenghtN := len(obstacleGrid[0])
 
@@ -35,19 +33,12 @@ func UniquePathsWithObstacles(obstacleGrid [][]int) int {
 				if j > 0 {
 					right = obstacleGrid[i][j-1]
 				}
-				// println("left ", left, "right ", right, "i ", i, "j ", j)  // Optional debug
 				obstacleGrid[i][j] = left + right
 			}
 		}
 	}
 
 	result := obstacleGrid[obstacleGridLenghtM-1][obstacleGridLenghtN-1]
-
-	// for _, v := range obstacleGrid {
-	// fmt.Printf("%v\n", v)
-	// }
-
-	fmt.Printf("%v\n", obstacleGrid)
 
 	return result
 }

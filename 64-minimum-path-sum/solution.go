@@ -1,4 +1,4 @@
-package uniquepathii
+package main
 
 func minPathSum(grid [][]int) int {
 	gridLenghtM := len(grid)

@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "testing"
 
 var tests = []struct {
 	grid       [][]int
@@ -12,11 +10,11 @@ var tests = []struct {
 	{[][]int{{1, 2, 3}, {4, 5, 6}}, 12},
 }
 
-func main() {
+func TestMinPathSum(t *testing.T) {
 	for _, testCase := range tests {
-		res := uniquepathii.minPathSum(testCase.grid)
+		res := minPathSum(testCase.grid)
 		if res != testCase.minPathSum {
-			fmt.Printf("minPathSum(%v) = %d, expected %d", testCase.grid, res, testCase.minPathSum)
+			t.Errorf("minPathSum(%v) = %d, expected %d", testCase.grid, res, testCase.minPathSum)
 		}
 	}
 }

@@ -5,7 +5,28 @@ import "testing"
 var tests = []struct {
 	testCase string
 	exp      bool
-}{}
+}{
+	{"2", true},
+	{"0089", true},
+	{"-0.1", true},
+	{"+3.14", true},
+	{"4.", true},
+	{"-.9", true},
+	{"2e10", true},
+	{"-90E3", true},
+	{"3e+7", true},
+	{"+6e-1", true},
+	{"53.5e93", true},
+	{"-123.456e789", true},
+	{"abc", false},
+	{"1a", false},
+	{"1e", false},
+	{"e3", false},
+	{"99e2.5", false},
+	{"--6", false},
+	{"-+3", false},
+	{"95a54e53", false},
+}
 
 func Test(t *testing.T) {
 	for _, testCase := range tests {

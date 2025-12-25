@@ -17,9 +17,12 @@ var tests = []struct {
 
 func Test(t *testing.T) {
 	for _, testCase := range tests {
-		res := plusOne(testCase.testCase)
+		var tCase []int
+		copy(tCase, testCase.testCase)
+
+		res := plusOne(tCase)
 		if slices.Equal(res, testCase.exp) {
-			t.Errorf("expWithObstacles(%v) = %v, expected %v", testCase.testCase, res, testCase.exp)
+			t.Errorf("expWithObstacles(%v) = %v, expected %v", tCase, res, testCase.exp)
 		}
 	}
 }
